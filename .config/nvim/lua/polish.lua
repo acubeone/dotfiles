@@ -5,5 +5,6 @@
 vim.filetype.add {
   extension = {
     asm68k = "m68k",
+    inc = "c",
   },
 }

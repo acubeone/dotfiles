@@ -18,5 +18,19 @@ return {
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.prettier,
     })
+
+    opts.sources = vim.tbl_filter(function(source) return source.name ~= "clang_format" end, opts.sources)
+
+    table.insert(
+      opts.sources,
+      null_ls.builtins.formatting.clang_format.with {
+        extra_args = function(params)
+          if params.bufname:match "%.inc$" then return { "--assume-filename=file.c" } end
+          return {}
+        end,
+      }
+    )
+
+    return opts
   end,
 }

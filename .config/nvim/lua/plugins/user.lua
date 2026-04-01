@@ -49,6 +49,7 @@ return {
 
   -- Misc
   { "jannis-baum/vivify.vim" },
+  { "pteroctopus/faster.nvim" },
   {
     "folke/todo-comments.nvim",
     lazy = false,
