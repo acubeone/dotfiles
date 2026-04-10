@@ -1,0 +1,6 @@
+[user]
+	email = acube_one@disroot.org
+	user = acubeone
+	name = acubeone
+[core]
+	editor = nvim
