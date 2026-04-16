@@ -11,7 +11,7 @@ return {
 
   -- LSP
   { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
-  { import = "astrocommunity.lsp.lsp-signature-nvim" },
+  -- { import = "astrocommunity.lsp.lsp-signature-nvim" },
   { import = "astrocommunity.lsp.nvim-lint" },
   { import = "astrocommunity.lsp.nvim-lsp-endhints" },
 

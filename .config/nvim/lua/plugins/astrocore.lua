@@ -18,7 +18,6 @@ return {
       underline = true,
     },
     filetypes = {
-
       extension = {
         x68k = "m68k",
         asm68k = "m68k",

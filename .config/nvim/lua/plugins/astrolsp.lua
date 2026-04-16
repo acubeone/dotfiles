@@ -5,21 +5,20 @@ return {
   opts = {
     features = {
       autoformat = true,
-      codelens = true, 
-      inlay_hints = false, 
-      semantic_tokens = true, 
+      codelens = true,
+      inlay_hints = false,
+      semantic_tokens = true,
     },
     formatting = {
       format_on_save = {
-        enabled = true, 
+        enabled = true,
         allow_filetypes = {},
         ignore_filetypes = {},
       },
       disabled = {},
-      timeout_ms = 1000, 
+      timeout_ms = 1000,
       filter = function(client)
         if vim.bo.filetype == "c" then return client.name == "null-ls" end
-
         return true
       end,
     },
