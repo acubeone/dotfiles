@@ -31,7 +31,6 @@ return {
       severity_sort = true,
     },
     servers = {
-      "glsl_analyzer",
       "zls",
       "m68k",
     },
@@ -39,7 +38,7 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       m68k = {
-        filetypes = "m68k",
+        filetypes = { "m68k" },
         cmd = {
           "m68k-lsp-server",
           "--stdio",

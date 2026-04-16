@@ -5,8 +5,7 @@
 return {
   -- Actions
   {
-    "echasnovski/mini.comment",
-    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring", opts = { enable_autocmd = false } },
+    "nvim-mini/mini.comment",
     event = "User AstroFile",
     opts = {
       custom_commentstring = function()
@@ -15,7 +14,7 @@ return {
     },
   },
   {
-    "echasnovski/mini.move",
+    "nvim-mini/mini.move",
     keys = function(_, keys)
       local plugin = require("lazy.core.config").spec.plugins["mini.move"]
       local opts = require("lazy.core.plugin").values(plugin, "opts", false) -- resolve mini.clue options
