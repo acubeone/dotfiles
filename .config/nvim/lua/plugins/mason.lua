@@ -1,4 +1,6 @@
--- Customize Mason plugins
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
+-- Customize Mason
 
 ---@type LazySpec
 return {
@@ -10,16 +12,16 @@ return {
       -- Make sure to use the names found in `:Mason`
       ensure_installed = {
         -- install language servers
-        "lua-language-server",
         "clangd",
+        "lua-language-server",
 
         -- install formatters
-        "prettier",
         "stylua",
-        -- "clang-format",
+        "prettier",
 
         -- install debuggers
         "codelldb",
+        "debugpy",
 
         -- install any other package
         "tree-sitter-cli",

@@ -1,12 +1,5 @@
 return {
   {
-    "ray-x/lsp_signature.nvim",
-    opts = {
-      transparency = 50,
-      move_signature_window_key = { "<M-Down>", "<M-Up>" },
-    },
-  },
-  {
     "saghen/blink.cmp",
     opts = {
       keymap = {
