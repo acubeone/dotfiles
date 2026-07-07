@@ -14,8 +14,11 @@ return {
       signature = {
         enabled = true,
         trigger = {
-          show_on_trigger_character = false,
+          show_on_trigger_character = true,
           show_on_insert = false,
+        },
+        window = {
+          show_documentation = true
         },
       },
       keymap = {
@@ -27,7 +30,7 @@ return {
     },
   },
   {
-    "nvim-highlight-colors",
+    "brenoprata10/nvim-highlight-colors",
     opts = {
       render = "virtual",
       virtual_symbol = "",
@@ -39,7 +42,7 @@ return {
       ---eow stands for `end of word` - Recommended to set `virtual_symbol_prefix = ' ' and virtual_symbol_suffix = ''` when used.
       virtual_symbol_position = "eow",
 
-      exclude_filetypes = { "c", "cpp" },
+      exclude_filetypes = { "c", "cpp", "verilog" },
     },
   },
   {

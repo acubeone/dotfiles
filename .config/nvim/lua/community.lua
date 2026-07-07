@@ -7,6 +7,9 @@ return {
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.godot" },
   { import = "astrocommunity.pack.java" },
+  { import = "astrocommunity.pack.python.base" },
+  { import = "astrocommunity.pack.python.basedpyright" },
+  { import = "astrocommunity.pack.python.ruff" },
   { import = "astrocommunity.markdown-and-latex.markview-nvim" },
 
   -- LSP

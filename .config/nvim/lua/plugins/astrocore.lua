@@ -19,7 +19,7 @@ return {
     },
     filetypes = {
       extension = {
-        x68k = "m68k",
+        x68 = "m68k",
         asm68k = "m68k",
         inc = "c"
       },
@@ -42,6 +42,7 @@ return {
         whichwrap = vim.opt.whichwrap:append "<,>,[,],h,l",
         termguicolors = true,
         title = false,
+        modeline = true,
       },
       g = { -- vim.g.<key>
         c_syntax_for_h = true,
@@ -63,8 +64,8 @@ return {
         ["<Leader>ft"] = { "<cmd>TodoTelescope<cr>", desc = "Search TODOs" },
 
         -- Switch buffers
-        ["<C-Left>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-        ["<C-Right>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+        ["<C-Right>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        ["<C-Left>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
         ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
         ["<Leader>bd"] = {

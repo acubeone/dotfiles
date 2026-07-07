@@ -8,12 +8,11 @@ return {
       codelens = true,
       inlay_hints = false,
       semantic_tokens = true,
+      signature_help = false,
     },
     formatting = {
       format_on_save = {
         enabled = true,
-        allow_filetypes = {},
-        ignore_filetypes = {},
       },
       disabled = {},
       timeout_ms = 1000,
@@ -25,6 +24,7 @@ return {
     servers = {
       "zls",
       "m68k",
+      "verible",
     },
     config = {
       -- ["*"] = { capabilities = {} }, -- modify default LSP client settings such as capabilities
@@ -50,6 +50,15 @@ return {
         capabilities = {
           offsetEncoding = "utf-8",
         },
+      },
+      verible = {
+        cmd = {
+          "verible-verilog-ls",
+          "--flagfile=.verible_format",
+          "--rules_config_search",
+          "--lsp_enable_hover",
+        },
+        filetypes = { "verilog", "systemverilog" },
       },
     },
     handlers = {
@@ -87,7 +96,6 @@ return {
         },
       },
     },
-    on_attach = function(client, bufnr)
-    end,
+    on_attach = function(client, bufnr) end,
   },
 }
