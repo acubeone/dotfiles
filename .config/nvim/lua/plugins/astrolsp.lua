@@ -41,7 +41,6 @@ return {
           "--background-index",
           "--clang-tidy",
           "--completion-style=detailed",
-          "--function-arg-placeholders",
           "--header-insertion=iwyu",
           "--header-insertion-decorators",
           "--malloc-trim",

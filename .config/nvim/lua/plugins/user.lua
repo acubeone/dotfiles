@@ -37,6 +37,7 @@ return {
 
   -- Misc
   { "jannis-baum/vivify.vim" },
+  { "ARM9/arm-syntax-vim" },
   {
     "cappyzawa/trim.nvim",
     lazy = false,

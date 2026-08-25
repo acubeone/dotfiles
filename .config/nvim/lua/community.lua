@@ -20,6 +20,7 @@ return {
 
   -- Debugging
   { import = "astrocommunity.debugging.nvim-dap-view" },
+  { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
 
   -- UI
   { import = "astrocommunity.colorscheme.onedarkpro-nvim" },

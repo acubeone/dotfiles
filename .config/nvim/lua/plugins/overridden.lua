@@ -18,7 +18,7 @@ return {
           show_on_insert = false,
         },
         window = {
-          show_documentation = true
+          show_documentation = true,
         },
       },
       keymap = {
@@ -126,20 +126,42 @@ return {
       local npairs = require "nvim-autopairs"
       local Rule = require "nvim-autopairs.rule"
       local cond = require "nvim-autopairs.conds"
-      npairs.add_rules(
-        {
-          Rule("$", "$", { "tex", "latex" })
-            :with_pair(cond.not_after_regex "%%")
-            :with_pair(
-              cond.not_before_regex("xxx", 3)
-            )
-            :with_move(cond.none())
-            :with_del(cond.not_after_regex "xx")
-            :with_cr(cond.none()),
-        },
-        Rule("a", "a", "-vim")
-      )
+      npairs.add_rules({
+        Rule("$", "$", { "tex", "latex" })
+          :with_pair(cond.not_after_regex "%%")
+          :with_pair(cond.not_before_regex("xxx", 3))
+          :with_move(cond.none())
+          :with_del(cond.not_after_regex "xx")
+          :with_cr(cond.none()),
+      }, Rule("a", "a", "-vim"))
     end,
   },
 
+  {
+    "mfussenegger/nvim-dap",
+    opts = function(_, opts)
+      local dap = require "dap"
+      dap.configurations.c = dap.configurations.c or {}
+      dap.configurations.cpp = dap.configurations.cpp or {}
+
+      dap.adapters["arm-none-eabi-gdb"] = {
+        type = "executable",
+        command = "arm-none-eabi-gdb",
+        args = { "-i", "dap" },
+      }
+
+      local mgba_config = {
+        name = "Attach to mGBA stub",
+        type = "arm-none-eabi-gdb",
+        request = "launch",
+        program = function() return vim.fn.input("ELF: ", vim.fn.getcwd() .. "/build/", "file") end,
+
+        cwd = "${workspaceRoot}",
+        target = "localhost:2345",
+      }
+
+      table.insert(dap.configurations.c, mgba_config)
+      table.insert(dap.configurations.cpp, mgba_config)
+    end,
+  },
 }
