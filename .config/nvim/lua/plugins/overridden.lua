@@ -139,10 +139,8 @@ return {
 
   {
     "mfussenegger/nvim-dap",
-    opts = function(_, opts)
+    opts = function(_, _)
       local dap = require "dap"
-      dap.configurations.c = dap.configurations.c or {}
-      dap.configurations.cpp = dap.configurations.cpp or {}
 
       dap.adapters["arm-none-eabi-gdb"] = {
         type = "executable",
@@ -153,14 +151,20 @@ return {
       local mgba_config = {
         name = "Attach to mGBA stub",
         type = "arm-none-eabi-gdb",
-        request = "launch",
+        request = "attach",
         program = function() return vim.fn.input("ELF: ", vim.fn.getcwd() .. "/build/", "file") end,
 
         cwd = "${workspaceRoot}",
         target = "localhost:2345",
       }
 
+      dap.configurations.armv4 = dap.configurations.armv4 or {}
+      table.insert(dap.configurations.armv4, mgba_config)
+
+      dap.configurations.c = dap.configurations.c or {}
       table.insert(dap.configurations.c, mgba_config)
+
+      dap.configurations.cpp = dap.configurations.cpp or {}
       table.insert(dap.configurations.cpp, mgba_config)
     end,
   },
